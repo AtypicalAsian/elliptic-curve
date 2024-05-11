@@ -1,0 +1,669 @@
+Here's how to read this output.
+We work on the curve y^2 = x^3 + 3x + 4, taken modulo the prime 31.
+
+We assign a base point (X, Y, Z)=(3, 3, 1)
+For this point, we have the first "power" (I will use exponention terminology)
+is the base point, the inverse of the z coordinate is 1, and the "normalized"
+point (the version of the point with Z=1) is the point itself.
+
+Using the formulas, we double the point.  In projective coordinates we
+get (2, 21, 6).  The inverse (written Zinverse) of 6 modulo 31 is 26.
+Now the normalization step, using the formulas from the text that I posted
+to Canvas.  The projective version is (X,Y,Z):
+   That formula has X=2, and x = X/Z^2, so X = x*Z^2.  To normalize, we
+multiply by Zinverse^2 to get x = 2*26^2 = 1352 == 19 modulo 31.
+   Similarly, we have Y=21, and y = Y/Z^3, so we multiply
+to get y = 21*26^3 = 369096 == 10 modulo 31.
+
+The advantage of doing projective coordinates is that there are fewer
+arithmetic steps to do doubling or adding.  One advantage of going back
+to a normalized form is that one can see the curve coordinates make sense.
+If P=(3, 3) in standard coordinates, then minus P=(3, 28) since 3+28=31=0.
+Similarly the negative of the point (19, 10) would be (19, 21).
+
+CURVE p=31 a=3 b=4 BASEPOINT=(       3        3        1)
+PT   1 POINT=(       3        3        1)   1 POINT=(       3        3        1)
+PT   2 POINT=(       2       21        6)  26 POINT=(      19       10        1)
+PT   3 POINT=(      28       22       16)   2 POINT=(      19       21        1)
+PT   4 POINT=(      12       24       29)  15 POINT=(       3       28        1)
+PT   5 POINT=(      10       15        0)   1 POINT=(      10       15        0)
+DONE POINT=(      10       15        0)
+ORDER        5
+
+SOLUTION 0 2
+PT   1 POINT=(       0        2        1)   1 POINT=(       0        2        1)
+PT   2 POINT=(       9        0        4)   8 POINT=(      18        0        1)
+PT   3 POINT=(       0        2       26)   6 POINT=(       0       29        1)
+PT   4 POINT=(      16        2        0)   1 POINT=(      16        2        0)
+DONE POINT=(      16        2        0)
+ORDER        4
+
+SOLUTION 0 29
+PT   1 POINT=(       0       29        1)   1 POINT=(       0       29        1)
+PT   2 POINT=(       9        0       27)  23 POINT=(      18        0        1)
+PT   3 POINT=(       0        2        5)  25 POINT=(       0        2        1)
+PT   4 POINT=(      16        2        0)   1 POINT=(      16        2        0)
+DONE POINT=(      16        2        0)
+ORDER        4
+
+SOLUTION 1 15
+PT   1 POINT=(       1       15        1)   1 POINT=(       1       15        1)
+PT   2 POINT=(       3        3       30)  30 POINT=(       3       28        1)
+PT   3 POINT=(      29       20        2)  16 POINT=(      15       18        1)
+PT   4 POINT=(       8       18       12)  13 POINT=(      19       21        1)
+PT   5 POINT=(       8        0       20)  14 POINT=(      18        0        1)
+PT   6 POINT=(      16        9       28)  10 POINT=(      19       10        1)
+PT   7 POINT=(      12       20       21)   3 POINT=(      15       13        1)
+PT   8 POINT=(      29       24       19)  18 POINT=(       3        3        1)
+PT   9 POINT=(       8       29       15)  29 POINT=(       1       16        1)
+PT  10 POINT=(      16       29        0)   1 POINT=(      16       29        0)
+DONE POINT=(      16       29        0)
+ORDER       10
+
+SOLUTION 1 16
+PT   1 POINT=(       1       16        1)   1 POINT=(       1       16        1)
+PT   2 POINT=(       3        3        1)   1 POINT=(       3        3        1)
+PT   3 POINT=(      29       20       29)  15 POINT=(      15       13        1)
+PT   4 POINT=(       8       18       19)  18 POINT=(      19       10        1)
+PT   5 POINT=(       8        0       11)  17 POINT=(      18        0        1)
+PT   6 POINT=(      16        9        3)  21 POINT=(      19       21        1)
+PT   7 POINT=(      12       20       10)  28 POINT=(      15       18        1)
+PT   8 POINT=(      29       24       12)  13 POINT=(       3       28        1)
+PT   9 POINT=(       8       29       16)   2 POINT=(       1       15        1)
+PT  10 POINT=(      16       29        0)   1 POINT=(      16       29        0)
+DONE POINT=(      16       29        0)
+ORDER       10
+
+SOLUTION 2 7
+PT   1 POINT=(       2        7        1)   1 POINT=(       2        7        1)
+PT   2 POINT=(      30       17       14)  20 POINT=(       3        3        1)
+PT   3 POINT=(      26        8       15)  29 POINT=(      11       29        1)
+PT   4 POINT=(      10       10        5)  25 POINT=(      19       10        1)
+PT   5 POINT=(      16        0       14)  20 POINT=(      14        0        1)
+PT   6 POINT=(       2       21       25)   5 POINT=(      19       21        1)
+PT   7 POINT=(      17        1       14)  20 POINT=(      11        2        1)
+PT   8 POINT=(      22        6       11)  17 POINT=(       3       28        1)
+PT   9 POINT=(       8        6        2)  16 POINT=(       2       24        1)
+PT  10 POINT=(      20       23        0)   1 POINT=(      20       23        0)
+DONE POINT=(      20       23        0)
+ORDER       10
+
+SOLUTION 2 24
+PT   1 POINT=(       2       24        1)   1 POINT=(       2       24        1)
+PT   2 POINT=(      30       17       17)  11 POINT=(       3       28        1)
+PT   3 POINT=(      26        8       16)   2 POINT=(      11        2        1)
+PT   4 POINT=(      10       10       26)   6 POINT=(      19       21        1)
+PT   5 POINT=(      16        0       17)  11 POINT=(      14        0        1)
+PT   6 POINT=(       2       21        6)  26 POINT=(      19       10        1)
+PT   7 POINT=(      17        1       17)  11 POINT=(      11       29        1)
+PT   8 POINT=(      22        6       20)  14 POINT=(       3        3        1)
+PT   9 POINT=(       8        6       29)  15 POINT=(       2        7        1)
+PT  10 POINT=(      20       23        0)   1 POINT=(      20       23        0)
+DONE POINT=(      20       23        0)
+ORDER       10
+
+SOLUTION 3 3
+PT   1 POINT=(       3        3        1)   1 POINT=(       3        3        1)
+PT   2 POINT=(       2       21        6)  26 POINT=(      19       10        1)
+PT   3 POINT=(      28       22       16)   2 POINT=(      19       21        1)
+PT   4 POINT=(      12       24       29)  15 POINT=(       3       28        1)
+PT   5 POINT=(      10       15        0)   1 POINT=(      10       15        0)
+DONE POINT=(      10       15        0)
+ORDER        5
+
+SOLUTION 3 28
+PT   1 POINT=(       3       28        1)   1 POINT=(       3       28        1)
+PT   2 POINT=(       2       21       25)   5 POINT=(      19       21        1)
+PT   3 POINT=(      28       22       15)  29 POINT=(      19       10        1)
+PT   4 POINT=(      12       24        2)  16 POINT=(       3        3        1)
+PT   5 POINT=(      10       15        0)   1 POINT=(      10       15        0)
+DONE POINT=(      10       15        0)
+ORDER        5
+
+SOLUTION 4 7
+PT   1 POINT=(       4        7        1)   1 POINT=(       4        7        1)
+PT   2 POINT=(      10       23       14)  20 POINT=(       1       15        1)
+PT   3 POINT=(      28        2       17)  11 POINT=(       9       27        1)
+PT   4 POINT=(      11       19       18)  19 POINT=(       3       28        1)
+PT   5 POINT=(       0        4        4)   8 POINT=(       0        2        1)
+PT   6 POINT=(      30        9        8)   4 POINT=(      15       18        1)
+PT   7 POINT=(      29       27       10)  28 POINT=(      13       15        1)
+PT   8 POINT=(       9       18       21)   3 POINT=(      19       21        1)
+PT   9 POINT=(      24       30       27)  23 POINT=(      17       16        1)
+PT  10 POINT=(      16        0       26)   6 POINT=(      18        0        1)
+PT  11 POINT=(      15       23       14)  20 POINT=(      17       15        1)
+PT  12 POINT=(      20        5        9)   7 POINT=(      19       10        1)
+PT  13 POINT=(      26        8        8)   4 POINT=(      13       16        1)
+PT  14 POINT=(      17        5       11)  17 POINT=(      15       13        1)
+PT  15 POINT=(       0        1       22)  24 POINT=(       0       29        1)
+PT  16 POINT=(      12        7       29)  15 POINT=(       3        3        1)
+PT  17 POINT=(      18       29       23)  27 POINT=(       9        4        1)
+PT  18 POINT=(      14        2       18)  19 POINT=(       1       16        1)
+PT  19 POINT=(      18       25       12)  13 POINT=(       4       24        1)
+PT  20 POINT=(      20        8        0)   1 POINT=(      20        8        0)
+DONE POINT=(      20        8        0)
+ORDER       20
+
+SOLUTION 4 24
+PT   1 POINT=(       4       24        1)   1 POINT=(       4       24        1)
+PT   2 POINT=(      10       23       17)  11 POINT=(       1       16        1)
+PT   3 POINT=(      28        2       14)  20 POINT=(       9        4        1)
+PT   4 POINT=(      11       19       13)  12 POINT=(       3        3        1)
+PT   5 POINT=(       0        4       27)  23 POINT=(       0       29        1)
+PT   6 POINT=(      30        9       23)  27 POINT=(      15       13        1)
+PT   7 POINT=(      29       27       21)   3 POINT=(      13       16        1)
+PT   8 POINT=(       9       18       10)  28 POINT=(      19       10        1)
+PT   9 POINT=(      24       30        4)   8 POINT=(      17       15        1)
+PT  10 POINT=(      16        0        5)  25 POINT=(      18        0        1)
+PT  11 POINT=(      15       23       17)  11 POINT=(      17       16        1)
+PT  12 POINT=(      20        5       22)  24 POINT=(      19       21        1)
+PT  13 POINT=(      26        8       23)  27 POINT=(      13       15        1)
+PT  14 POINT=(      17        5       20)  14 POINT=(      15       18        1)
+PT  15 POINT=(       0        1        9)   7 POINT=(       0        2        1)
+PT  16 POINT=(      12        7        2)  16 POINT=(       3       28        1)
+PT  17 POINT=(      18       29        8)   4 POINT=(       9       27        1)
+PT  18 POINT=(      14        2       13)  12 POINT=(       1       15        1)
+PT  19 POINT=(      18       25       19)  18 POINT=(       4        7        1)
+PT  20 POINT=(      20        8        0)   1 POINT=(      20        8        0)
+DONE POINT=(      20        8        0)
+ORDER       20
+
+SOLUTION 5 12
+PT   1 POINT=(       5       12        1)   1 POINT=(       5       12        1)
+PT   2 POINT=(      14        0       24)  22 POINT=(      18        0        1)
+PT   3 POINT=(       1       12       26)   6 POINT=(       5       19        1)
+PT   4 POINT=(      18       29        0)   1 POINT=(      18       29        0)
+DONE POINT=(      18       29        0)
+ORDER        4
+
+SOLUTION 5 19
+PT   1 POINT=(       5       19        1)   1 POINT=(       5       19        1)
+PT   2 POINT=(      14        0        7)   9 POINT=(      18        0        1)
+PT   3 POINT=(       1       12        5)  25 POINT=(       5       12        1)
+PT   4 POINT=(      18       29        0)   1 POINT=(      18       29        0)
+DONE POINT=(      18       29        0)
+ORDER        4
+
+SOLUTION 9 4
+PT   1 POINT=(       9        4        1)   1 POINT=(       9        4        1)
+PT   2 POINT=(      30       22        8)   4 POINT=(      15       13        1)
+PT   3 POINT=(      29       29       28)  10 POINT=(      17       15        1)
+PT   4 POINT=(      19       10       30)  30 POINT=(      19       21        1)
+PT   5 POINT=(       0       16       10)  28 POINT=(       0        2        1)
+PT   6 POINT=(       7       27       10)  28 POINT=(       1       15        1)
+PT   7 POINT=(      16        6        2)  16 POINT=(       4       24        1)
+PT   8 POINT=(      26       17        9)   7 POINT=(       3        3        1)
+PT   9 POINT=(      24       29        3)  21 POINT=(      13       16        1)
+PT  10 POINT=(      20        0       16)   2 POINT=(      18        0        1)
+PT  11 POINT=(      15       16       26)   6 POINT=(      13       15        1)
+PT  12 POINT=(      17       25        4)   8 POINT=(       3       28        1)
+PT  13 POINT=(      18        6       12)  13 POINT=(       4        7        1)
+PT  14 POINT=(      19       23       22)  24 POINT=(       1       16        1)
+PT  15 POINT=(       0        4       27)  23 POINT=(       0       29        1)
+PT  16 POINT=(      18       22       13)  12 POINT=(      19       10        1)
+PT  17 POINT=(      13        8        9)   7 POINT=(      17       16        1)
+PT  18 POINT=(      23       26       27)  23 POINT=(      15       18        1)
+PT  19 POINT=(      25        1       12)  13 POINT=(       9       27        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 9 27
+PT   1 POINT=(       9       27        1)   1 POINT=(       9       27        1)
+PT   2 POINT=(      30       22       23)  27 POINT=(      15       18        1)
+PT   3 POINT=(      29       29        3)  21 POINT=(      17       16        1)
+PT   4 POINT=(      19       10        1)   1 POINT=(      19       10        1)
+PT   5 POINT=(       0       16       21)   3 POINT=(       0       29        1)
+PT   6 POINT=(       7       27       21)   3 POINT=(       1       16        1)
+PT   7 POINT=(      16        6       29)  15 POINT=(       4        7        1)
+PT   8 POINT=(      26       17       22)  24 POINT=(       3       28        1)
+PT   9 POINT=(      24       29       28)  10 POINT=(      13       15        1)
+PT  10 POINT=(      20        0       15)  29 POINT=(      18        0        1)
+PT  11 POINT=(      15       16        5)  25 POINT=(      13       16        1)
+PT  12 POINT=(      17       25       27)  23 POINT=(       3        3        1)
+PT  13 POINT=(      18        6       19)  18 POINT=(       4       24        1)
+PT  14 POINT=(      19       23        9)   7 POINT=(       1       15        1)
+PT  15 POINT=(       0        4        4)   8 POINT=(       0        2        1)
+PT  16 POINT=(      18       22       18)  19 POINT=(      19       21        1)
+PT  17 POINT=(      13        8       22)  24 POINT=(      17       15        1)
+PT  18 POINT=(      23       26        4)   8 POINT=(      15       13        1)
+PT  19 POINT=(      25        1       19)  18 POINT=(       9        4        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 11 2
+PT   1 POINT=(      11        2        1)   1 POINT=(      11        2        1)
+PT   2 POINT=(      25       20        4)   8 POINT=(      19       10        1)
+PT   3 POINT=(      16        3       15)  29 POINT=(       2        7        1)
+PT   4 POINT=(      13        3       26)   6 POINT=(       3       28        1)
+PT   5 POINT=(      28        0       23)  27 POINT=(      14        0        1)
+PT   6 POINT=(      30       14       17)  11 POINT=(       3        3        1)
+PT   7 POINT=(       1       14       27)  23 POINT=(       2       24        1)
+PT   8 POINT=(      18        9       13)  12 POINT=(      19       21        1)
+PT   9 POINT=(      11       29        1)   1 POINT=(      11       29        1)
+PT  10 POINT=(      16       29        0)   1 POINT=(      16       29        0)
+DONE POINT=(      16       29        0)
+ORDER       10
+
+SOLUTION 11 29
+PT   1 POINT=(      11       29        1)   1 POINT=(      11       29        1)
+PT   2 POINT=(      25       20       27)  23 POINT=(      19       21        1)
+PT   3 POINT=(      16        3       16)   2 POINT=(       2       24        1)
+PT   4 POINT=(      13        3        5)  25 POINT=(       3        3        1)
+PT   5 POINT=(      28        0        8)   4 POINT=(      14        0        1)
+PT   6 POINT=(      30       14       14)  20 POINT=(       3       28        1)
+PT   7 POINT=(       1       14        4)   8 POINT=(       2        7        1)
+PT   8 POINT=(      18        9       18)  19 POINT=(      19       10        1)
+PT   9 POINT=(      11       29       30)  30 POINT=(      11        2        1)
+PT  10 POINT=(      16       29        0)   1 POINT=(      16       29        0)
+DONE POINT=(      16       29        0)
+ORDER       10
+
+SOLUTION 12 1
+PT   1 POINT=(      12        1        1)   1 POINT=(      12        1        1)
+PT   2 POINT=(      29       11        2)  16 POINT=(      15       13        1)
+PT   3 POINT=(      19       27        7)   9 POINT=(      20       29        1)
+PT   4 POINT=(      28        9       15)  29 POINT=(      19       21        1)
+PT   5 POINT=(      14       14       28)  10 POINT=(       5       19        1)
+PT   6 POINT=(       9       29       28)  10 POINT=(       1       15        1)
+PT   7 POINT=(       9       28       13)  12 POINT=(      25       24        1)
+PT   8 POINT=(      21        7       21)   3 POINT=(       3        3        1)
+PT   9 POINT=(      27       21       21)   3 POINT=(      26        9        1)
+PT  10 POINT=(      19        0       19)  18 POINT=(      18        0        1)
+PT  11 POINT=(      12       11       14)  20 POINT=(      26       22        1)
+PT  12 POINT=(      23        6       24)  22 POINT=(       3       28        1)
+PT  13 POINT=(       9        3       13)  12 POINT=(      25        7        1)
+PT  14 POINT=(       7       27       21)   3 POINT=(       1       16        1)
+PT  15 POINT=(       1       12        5)  25 POINT=(       5       12        1)
+PT  16 POINT=(       1       20        7)   9 POINT=(      19       10        1)
+PT  17 POINT=(      14       30       17)  11 POINT=(      20        2        1)
+PT  18 POINT=(      23        5        4)   8 POINT=(      15       18        1)
+PT  19 POINT=(      29       30       25)   5 POINT=(      12       30        1)
+PT  20 POINT=(       4       23        0)   1 POINT=(       4       23        0)
+DONE POINT=(       4       23        0)
+ORDER       20
+
+SOLUTION 12 30
+PT   1 POINT=(      12       30        1)   1 POINT=(      12       30        1)
+PT   2 POINT=(      29       11       29)  15 POINT=(      15       18        1)
+PT   3 POINT=(      19       27       24)  22 POINT=(      20        2        1)
+PT   4 POINT=(      28        9       16)   2 POINT=(      19       10        1)
+PT   5 POINT=(      14       14        3)  21 POINT=(       5       12        1)
+PT   6 POINT=(       9       29        3)  21 POINT=(       1       16        1)
+PT   7 POINT=(       9       28       18)  19 POINT=(      25        7        1)
+PT   8 POINT=(      21        7       10)  28 POINT=(       3       28        1)
+PT   9 POINT=(      27       21       10)  28 POINT=(      26       22        1)
+PT  10 POINT=(      19        0       12)  13 POINT=(      18        0        1)
+PT  11 POINT=(      12       11       17)  11 POINT=(      26        9        1)
+PT  12 POINT=(      23        6        7)   9 POINT=(       3        3        1)
+PT  13 POINT=(       9        3       18)  19 POINT=(      25       24        1)
+PT  14 POINT=(       7       27       10)  28 POINT=(       1       15        1)
+PT  15 POINT=(       1       12       26)   6 POINT=(       5       19        1)
+PT  16 POINT=(       1       20       24)  22 POINT=(      19       21        1)
+PT  17 POINT=(      14       30       14)  20 POINT=(      20       29        1)
+PT  18 POINT=(      23        5       27)  23 POINT=(      15       13        1)
+PT  19 POINT=(      29       30        6)  26 POINT=(      12        1        1)
+PT  20 POINT=(       4       23        0)   1 POINT=(       4       23        0)
+DONE POINT=(       4       23        0)
+ORDER       20
+
+SOLUTION 13 15
+PT   1 POINT=(      13       15        1)   1 POINT=(      13       15        1)
+PT   2 POINT=(      15       18       30)  30 POINT=(      15       13        1)
+PT   3 POINT=(      16       25        2)  16 POINT=(       4        7        1)
+PT   4 POINT=(       9       13       10)  28 POINT=(      19       21        1)
+PT   5 POINT=(       0       30       14)  20 POINT=(       0       29        1)
+PT   6 POINT=(      19        8       22)  24 POINT=(       1       15        1)
+PT   7 POINT=(      23       16       25)   5 POINT=(      17       16        1)
+PT   8 POINT=(      17       25       27)  23 POINT=(       3        3        1)
+PT   9 POINT=(       4        8       11)  17 POINT=(       9       27        1)
+PT  10 POINT=(       5        0       23)  27 POINT=(      18        0        1)
+PT  11 POINT=(       2       16       18)  19 POINT=(       9        4        1)
+PT  12 POINT=(      24       19       16)   2 POINT=(       3       28        1)
+PT  13 POINT=(      13       23        9)   7 POINT=(      17       15        1)
+PT  14 POINT=(       4       27       29)  15 POINT=(       1       16        1)
+PT  15 POINT=(       0        8       28)  10 POINT=(       0        2        1)
+PT  16 POINT=(       9       13       21)   3 POINT=(      19       10        1)
+PT  17 POINT=(       9       19       17)  11 POINT=(       4       24        1)
+PT  18 POINT=(      17       26       11)  17 POINT=(      15       18        1)
+PT  19 POINT=(      22        1        4)   8 POINT=(      13       16        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 13 16
+PT   1 POINT=(      13       16        1)   1 POINT=(      13       16        1)
+PT   2 POINT=(      15       18        1)   1 POINT=(      15       18        1)
+PT   3 POINT=(      16       25       29)  15 POINT=(       4       24        1)
+PT   4 POINT=(       9       13       21)   3 POINT=(      19       10        1)
+PT   5 POINT=(       0       30       17)  11 POINT=(       0        2        1)
+PT   6 POINT=(      19        8        9)   7 POINT=(       1       16        1)
+PT   7 POINT=(      23       16        6)  26 POINT=(      17       15        1)
+PT   8 POINT=(      17       25        4)   8 POINT=(       3       28        1)
+PT   9 POINT=(       4        8       20)  14 POINT=(       9        4        1)
+PT  10 POINT=(       5        0        8)   4 POINT=(      18        0        1)
+PT  11 POINT=(       2       16       13)  12 POINT=(       9       27        1)
+PT  12 POINT=(      24       19       15)  29 POINT=(       3        3        1)
+PT  13 POINT=(      13       23       22)  24 POINT=(      17       16        1)
+PT  14 POINT=(       4       27        2)  16 POINT=(       1       15        1)
+PT  15 POINT=(       0        8        3)  21 POINT=(       0       29        1)
+PT  16 POINT=(       9       13       10)  28 POINT=(      19       21        1)
+PT  17 POINT=(       9       19       14)  20 POINT=(       4        7        1)
+PT  18 POINT=(      17       26       20)  14 POINT=(      15       13        1)
+PT  19 POINT=(      22        1       27)  23 POINT=(      13       15        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 14 0
+PT   1 POINT=(      14        0        1)   1 POINT=(      14        0        1)
+PT   2 POINT=(       4       23        0)   1 POINT=(       4       23        0)
+DONE POINT=(       4       23        0)
+ORDER        2
+
+SOLUTION 15 13
+PT   1 POINT=(      15       13        1)   1 POINT=(      15       13        1)
+PT   2 POINT=(      10       10       26)   6 POINT=(      19       21        1)
+PT   3 POINT=(      16       30        4)   8 POINT=(       1       15        1)
+PT   4 POINT=(      27       12       28)  10 POINT=(       3        3        1)
+PT   5 POINT=(      25        0       17)  11 POINT=(      18        0        1)
+PT   6 POINT=(      30       17       17)  11 POINT=(       3       28        1)
+PT   7 POINT=(       5       16       25)   5 POINT=(       1       16        1)
+PT   8 POINT=(       4        5       14)  20 POINT=(      19       10        1)
+PT   9 POINT=(      29       11       29)  15 POINT=(      15       18        1)
+PT  10 POINT=(      19       15        0)   1 POINT=(      19       15        0)
+DONE POINT=(      19       15        0)
+ORDER       10
+
+SOLUTION 15 18
+PT   1 POINT=(      15       18        1)   1 POINT=(      15       18        1)
+PT   2 POINT=(      10       10        5)  25 POINT=(      19       10        1)
+PT   3 POINT=(      16       30       27)  23 POINT=(       1       16        1)
+PT   4 POINT=(      27       12        3)  21 POINT=(       3       28        1)
+PT   5 POINT=(      25        0       14)  20 POINT=(      18        0        1)
+PT   6 POINT=(      30       17       14)  20 POINT=(       3        3        1)
+PT   7 POINT=(       5       16        6)  26 POINT=(       1       15        1)
+PT   8 POINT=(       4        5       17)  11 POINT=(      19       21        1)
+PT   9 POINT=(      29       11        2)  16 POINT=(      15       13        1)
+PT  10 POINT=(      19       15        0)   1 POINT=(      19       15        0)
+DONE POINT=(      19       15        0)
+ORDER       10
+
+SOLUTION 16 5
+PT   1 POINT=(      16        5        1)   1 POINT=(      16        5        1)
+PT   2 POINT=(       9       13       10)  28 POINT=(      19       21        1)
+PT   3 POINT=(       6        9        7)   9 POINT=(      21       20        1)
+PT   4 POINT=(      21        7       21)   3 POINT=(       3        3        1)
+PT   5 POINT=(       3        0       20)  14 POINT=(      30        0        1)
+PT   6 POINT=(      27       12        3)  21 POINT=(       3       28        1)
+PT   7 POINT=(      23       26       10)  28 POINT=(      21       11        1)
+PT   8 POINT=(      20       26       22)  24 POINT=(      19       10        1)
+PT   9 POINT=(       5       18       17)  11 POINT=(      16       26        1)
+PT  10 POINT=(      25        1        0)   1 POINT=(      25        1        0)
+DONE POINT=(      25        1        0)
+ORDER       10
+
+SOLUTION 16 26
+PT   1 POINT=(      16       26        1)   1 POINT=(      16       26        1)
+PT   2 POINT=(       9       13       21)   3 POINT=(      19       10        1)
+PT   3 POINT=(       6        9       24)  22 POINT=(      21       11        1)
+PT   4 POINT=(      21        7       10)  28 POINT=(       3       28        1)
+PT   5 POINT=(       3        0       11)  17 POINT=(      30        0        1)
+PT   6 POINT=(      27       12       28)  10 POINT=(       3        3        1)
+PT   7 POINT=(      23       26       21)   3 POINT=(      21       20        1)
+PT   8 POINT=(      20       26        9)   7 POINT=(      19       21        1)
+PT   9 POINT=(       5       18       14)  20 POINT=(      16        5        1)
+PT  10 POINT=(      25        1        0)   1 POINT=(      25        1        0)
+DONE POINT=(      25        1        0)
+ORDER       10
+
+SOLUTION 17 15
+PT   1 POINT=(      17       15        1)   1 POINT=(      17       15        1)
+PT   2 POINT=(       1       16       30)  30 POINT=(       1       15        1)
+PT   3 POINT=(      11       29       15)  29 POINT=(      13       16        1)
+PT   4 POINT=(      24       12       15)  29 POINT=(       3       28        1)
+PT   5 POINT=(       0        2        6)  26 POINT=(       0       29        1)
+PT   6 POINT=(      26        9       14)  20 POINT=(      15       18        1)
+PT   7 POINT=(       9        4        1)   1 POINT=(       9        4        1)
+PT   8 POINT=(       7       26        8)   4 POINT=(      19       21        1)
+PT   9 POINT=(       4        7       30)  30 POINT=(       4       24        1)
+PT  10 POINT=(       4        0       18)  19 POINT=(      18        0        1)
+PT  11 POINT=(       2       17       27)  23 POINT=(       4        7        1)
+PT  12 POINT=(      10       10        5)  25 POINT=(      19       10        1)
+PT  13 POINT=(       5        1       29)  15 POINT=(       9       27        1)
+PT  14 POINT=(      29       20       29)  15 POINT=(      15       13        1)
+PT  15 POINT=(       0       23       15)  29 POINT=(       0        2        1)
+PT  16 POINT=(      15        3       25)   5 POINT=(       3        3        1)
+PT  17 POINT=(       6       23       14)  20 POINT=(      13       15        1)
+PT  18 POINT=(       4        4        2)  16 POINT=(       1       16        1)
+PT  19 POINT=(      24        1        4)   8 POINT=(      17       16        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 17 16
+PT   1 POINT=(      17       16        1)   1 POINT=(      17       16        1)
+PT   2 POINT=(       1       16        1)   1 POINT=(       1       16        1)
+PT   3 POINT=(      11       29       16)   2 POINT=(      13       15        1)
+PT   4 POINT=(      24       12       16)   2 POINT=(       3        3        1)
+PT   5 POINT=(       0        2       25)   5 POINT=(       0        2        1)
+PT   6 POINT=(      26        9       17)  11 POINT=(      15       13        1)
+PT   7 POINT=(       9        4       30)  30 POINT=(       9       27        1)
+PT   8 POINT=(       7       26       23)  27 POINT=(      19       10        1)
+PT   9 POINT=(       4        7        1)   1 POINT=(       4        7        1)
+PT  10 POINT=(       4        0       13)  12 POINT=(      18        0        1)
+PT  11 POINT=(       2       17        4)   8 POINT=(       4       24        1)
+PT  12 POINT=(      10       10       26)   6 POINT=(      19       21        1)
+PT  13 POINT=(       5        1        2)  16 POINT=(       9        4        1)
+PT  14 POINT=(      29       20        2)  16 POINT=(      15       18        1)
+PT  15 POINT=(       0       23       16)   2 POINT=(       0       29        1)
+PT  16 POINT=(      15        3        6)  26 POINT=(       3       28        1)
+PT  17 POINT=(       6       23       17)  11 POINT=(      13       16        1)
+PT  18 POINT=(       4        4       29)  15 POINT=(       1       15        1)
+PT  19 POINT=(      24        1       27)  23 POINT=(      17       15        1)
+PT  20 POINT=(       4        8        0)   1 POINT=(       4        8        0)
+DONE POINT=(       4        8        0)
+ORDER       20
+
+SOLUTION 18 0
+PT   1 POINT=(      18        0        1)   1 POINT=(      18        0        1)
+PT   2 POINT=(      10       15        0)   1 POINT=(      10       15        0)
+DONE POINT=(      10       15        0)
+ORDER        2
+
+SOLUTION 19 10
+PT   1 POINT=(      19       10        1)   1 POINT=(      19       10        1)
+PT   2 POINT=(      22       25       20)  14 POINT=(       3       28        1)
+PT   3 POINT=(       3        3        1)   1 POINT=(       3        3        1)
+PT   4 POINT=(      28       22       16)   2 POINT=(      19       21        1)
+PT   5 POINT=(      14       27        0)   1 POINT=(      14       27        0)
+DONE POINT=(      14       27        0)
+ORDER        5
+
+SOLUTION 19 21
+PT   1 POINT=(      19       21        1)   1 POINT=(      19       21        1)
+PT   2 POINT=(      22       25       11)  17 POINT=(       3        3        1)
+PT   3 POINT=(       3        3       30)  30 POINT=(       3       28        1)
+PT   4 POINT=(      28       22       15)  29 POINT=(      19       10        1)
+PT   5 POINT=(      14       27        0)   1 POINT=(      14       27        0)
+DONE POINT=(      14       27        0)
+ORDER        5
+
+SOLUTION 20 2
+PT   1 POINT=(      20        2        1)   1 POINT=(      20        2        1)
+PT   2 POINT=(      16        1        4)   8 POINT=(       1       16        1)
+PT   3 POINT=(       3       13        7)   9 POINT=(      26       22        1)
+PT   4 POINT=(      29       24       19)  18 POINT=(       3        3        1)
+PT   5 POINT=(       7        3       12)  13 POINT=(       5       19        1)
+PT   6 POINT=(      23       26        4)   8 POINT=(      15       13        1)
+PT   7 POINT=(      22       23       10)  28 POINT=(      12       30        1)
+PT   8 POINT=(      14       18        2)  16 POINT=(      19       10        1)
+PT   9 POINT=(      19       19        8)   4 POINT=(      25        7        1)
+PT  10 POINT=(       4        0       13)  12 POINT=(      18        0        1)
+PT  11 POINT=(      19       19       23)  27 POINT=(      25       24        1)
+PT  12 POINT=(      18       22       18)  19 POINT=(      19       21        1)
+PT  13 POINT=(       6        2        4)   8 POINT=(      12        1        1)
+PT  14 POINT=(      27       10       16)   2 POINT=(      15       18        1)
+PT  15 POINT=(      16       24       20)  14 POINT=(       5       12        1)
+PT  16 POINT=(       3        3       30)  30 POINT=(       3       28        1)
+PT  17 POINT=(      12       20       14)  20 POINT=(      26        9        1)
+PT  18 POINT=(       9       29       28)  10 POINT=(       1       15        1)
+PT  19 POINT=(      14       30       14)  20 POINT=(      20       29        1)
+PT  20 POINT=(       4       23        0)   1 POINT=(       4       23        0)
+DONE POINT=(       4       23        0)
+ORDER       20
+
+SOLUTION 20 29
+PT   1 POINT=(      20       29        1)   1 POINT=(      20       29        1)
+PT   2 POINT=(      16        1       27)  23 POINT=(       1       15        1)
+PT   3 POINT=(       3       13       24)  22 POINT=(      26        9        1)
+PT   4 POINT=(      29       24       12)  13 POINT=(       3       28        1)
+PT   5 POINT=(       7        3       19)  18 POINT=(       5       12        1)
+PT   6 POINT=(      23       26       27)  23 POINT=(      15       18        1)
+PT   7 POINT=(      22       23       21)   3 POINT=(      12        1        1)
+PT   8 POINT=(      14       18       29)  15 POINT=(      19       21        1)
+PT   9 POINT=(      19       19       23)  27 POINT=(      25       24        1)
+PT  10 POINT=(       4        0       18)  19 POINT=(      18        0        1)
+PT  11 POINT=(      19       19        8)   4 POINT=(      25        7        1)
+PT  12 POINT=(      18       22       13)  12 POINT=(      19       10        1)
+PT  13 POINT=(       6        2       27)  23 POINT=(      12       30        1)
+PT  14 POINT=(      27       10       15)  29 POINT=(      15       13        1)
+PT  15 POINT=(      16       24       11)  17 POINT=(       5       19        1)
+PT  16 POINT=(       3        3        1)   1 POINT=(       3        3        1)
+PT  17 POINT=(      12       20       17)  11 POINT=(      26       22        1)
+PT  18 POINT=(       9       29        3)  21 POINT=(       1       16        1)
+PT  19 POINT=(      14       30       17)  11 POINT=(      20        2        1)
+PT  20 POINT=(       4       23        0)   1 POINT=(       4       23        0)
+DONE POINT=(       4       23        0)
+ORDER       20
+
+SOLUTION 21 11
+PT   1 POINT=(      21       11        1)   1 POINT=(      21       11        1)
+PT   2 POINT=(      26       14       22)  24 POINT=(       3        3        1)
+PT   3 POINT=(      25       13       22)  24 POINT=(      16        5        1)
+PT   4 POINT=(      18       22       13)  12 POINT=(      19       10        1)
+PT   5 POINT=(      29        0       23)  27 POINT=(      30        0        1)
+PT   6 POINT=(       5       11       20)  14 POINT=(      19       21        1)
+PT   7 POINT=(       8       21        4)   8 POINT=(      16       26        1)
+PT   8 POINT=(      21        7       10)  28 POINT=(       3       28        1)
+PT   9 POINT=(      30        9       20)  14 POINT=(      21       20        1)
+PT  10 POINT=(      14        4        0)   1 POINT=(      14        4        0)
+DONE POINT=(      14        4        0)
+ORDER       10
+
+SOLUTION 21 20
+PT   1 POINT=(      21       20        1)   1 POINT=(      21       20        1)
+PT   2 POINT=(      26       14        9)   7 POINT=(       3       28        1)
+PT   3 POINT=(      25       13        9)   7 POINT=(      16       26        1)
+PT   4 POINT=(      18       22       18)  19 POINT=(      19       21        1)
+PT   5 POINT=(      29        0        8)   4 POINT=(      30        0        1)
+PT   6 POINT=(       5       11       11)  17 POINT=(      19       10        1)
+PT   7 POINT=(       8       21       27)  23 POINT=(      16        5        1)
+PT   8 POINT=(      21        7       21)   3 POINT=(       3        3        1)
+PT   9 POINT=(      30        9       11)  17 POINT=(      21       11        1)
+PT  10 POINT=(      14        4        0)   1 POINT=(      14        4        0)
+DONE POINT=(      14        4        0)
+ORDER       10
+
+SOLUTION 25 7
+PT   1 POINT=(      25        7        1)   1 POINT=(      25        7        1)
+PT   2 POINT=(      10       23       14)  20 POINT=(       1       15        1)
+PT   3 POINT=(      23        8       12)  13 POINT=(      12       30        1)
+PT   4 POINT=(      22       25       20)  14 POINT=(       3       28        1)
+PT   5 POINT=(       8       17       13)  12 POINT=(       5       19        1)
+PT   6 POINT=(      24       21       13)  12 POINT=(      15       18        1)
+PT   7 POINT=(      29       20       22)  24 POINT=(      26       22        1)
+PT   8 POINT=(      28       22       16)   2 POINT=(      19       21        1)
+PT   9 POINT=(      19       27       24)  22 POINT=(      20        2        1)
+PT  10 POINT=(       2        0       21)   3 POINT=(      18        0        1)
+PT  11 POINT=(       7        2        6)  26 POINT=(      20       29        1)
+PT  12 POINT=(      10       21       26)   6 POINT=(      19       10        1)
+PT  13 POINT=(       6        9       25)   5 POINT=(      26        9        1)
+PT  14 POINT=(      15       18       30)  30 POINT=(      15       13        1)
+PT  15 POINT=(       4       28       21)   3 POINT=(       5       12        1)
+PT  16 POINT=(      13       28       26)   6 POINT=(       3        3        1)
+PT  17 POINT=(      11       16        9)   7 POINT=(      12        1        1)
+PT  18 POINT=(      19       23       22)  24 POINT=(       1       16        1)
+PT  19 POINT=(       4        6       19)  18 POINT=(      25       24        1)
+PT  20 POINT=(      20       23        0)   1 POINT=(      20       23        0)
+DONE POINT=(      20       23        0)
+ORDER       20
+
+SOLUTION 25 24
+PT   1 POINT=(      25       24        1)   1 POINT=(      25       24        1)
+PT   2 POINT=(      10       23       17)  11 POINT=(       1       16        1)
+PT   3 POINT=(      23        8       19)  18 POINT=(      12        1        1)
+PT   4 POINT=(      22       25       11)  17 POINT=(       3        3        1)
+PT   5 POINT=(       8       17       18)  19 POINT=(       5       12        1)
+PT   6 POINT=(      24       21       18)  19 POINT=(      15       13        1)
+PT   7 POINT=(      29       20        9)   7 POINT=(      26        9        1)
+PT   8 POINT=(      28       22       15)  29 POINT=(      19       10        1)
+PT   9 POINT=(      19       27        7)   9 POINT=(      20       29        1)
+PT  10 POINT=(       2        0       10)  28 POINT=(      18        0        1)
+PT  11 POINT=(       7        2       25)   5 POINT=(      20        2        1)
+PT  12 POINT=(      10       21        5)  25 POINT=(      19       21        1)
+PT  13 POINT=(       6        9        6)  26 POINT=(      26       22        1)
+PT  14 POINT=(      15       18        1)   1 POINT=(      15       18        1)
+PT  15 POINT=(       4       28       10)  28 POINT=(       5       19        1)
+PT  16 POINT=(      13       28        5)  25 POINT=(       3       28        1)
+PT  17 POINT=(      11       16       22)  24 POINT=(      12       30        1)
+PT  18 POINT=(      19       23        9)   7 POINT=(       1       15        1)
+PT  19 POINT=(       4        6       12)  13 POINT=(      25        7        1)
+PT  20 POINT=(      20       23        0)   1 POINT=(      20       23        0)
+DONE POINT=(      20       23        0)
+ORDER       20
+
+SOLUTION 26 9
+PT   1 POINT=(      26        9        1)   1 POINT=(      26        9        1)
+PT   2 POINT=(      24       10       18)  19 POINT=(      15       18        1)
+PT   3 POINT=(       9       28       13)  12 POINT=(      25       24        1)
+PT   4 POINT=(      25       11       27)  23 POINT=(      19       10        1)
+PT   5 POINT=(      19        6       17)  11 POINT=(       5       19        1)
+PT   6 POINT=(      25       16        5)  25 POINT=(       1       16        1)
+PT   7 POINT=(       7       29       25)   5 POINT=(      20       29        1)
+PT   8 POINT=(      15        3        6)  26 POINT=(       3       28        1)
+PT   9 POINT=(      24       16        8)   4 POINT=(      12        1        1)
+PT  10 POINT=(      14        0        7)   9 POINT=(      18        0        1)
+PT  11 POINT=(       3       27       16)   2 POINT=(      12       30        1)
+PT  12 POINT=(      15        3       25)   5 POINT=(       3        3        1)
+PT  13 POINT=(       9       30       23)  27 POINT=(      20        2        1)
+PT  14 POINT=(       9       29       28)  10 POINT=(       1       15        1)
+PT  15 POINT=(      28       24        7)   9 POINT=(       5       12        1)
+PT  16 POINT=(       5       20       11)  17 POINT=(      19       21        1)
+PT  17 POINT=(       2       12       17)  11 POINT=(      25        7        1)
+PT  18 POINT=(      27       10       15)  29 POINT=(      15       13        1)
+PT  19 POINT=(      23       26       18)  19 POINT=(      26       22        1)
+PT  20 POINT=(       7       23        0)   1 POINT=(       7       23        0)
+DONE POINT=(       7       23        0)
+ORDER       20
+
+SOLUTION 26 22
+PT   1 POINT=(      26       22        1)   1 POINT=(      26       22        1)
+PT   2 POINT=(      24       10       13)  12 POINT=(      15       13        1)
+PT   3 POINT=(       9       28       18)  19 POINT=(      25        7        1)
+PT   4 POINT=(      25       11        4)   8 POINT=(      19       21        1)
+PT   5 POINT=(      19        6       14)  20 POINT=(       5       12        1)
+PT   6 POINT=(      25       16       26)   6 POINT=(       1       15        1)
+PT   7 POINT=(       7       29        6)  26 POINT=(      20        2        1)
+PT   8 POINT=(      15        3       25)   5 POINT=(       3        3        1)
+PT   9 POINT=(      24       16       23)  27 POINT=(      12       30        1)
+PT  10 POINT=(      14        0       24)  22 POINT=(      18        0        1)
+PT  11 POINT=(       3       27       15)  29 POINT=(      12        1        1)
+PT  12 POINT=(      15        3        6)  26 POINT=(       3       28        1)
+PT  13 POINT=(       9       30        8)   4 POINT=(      20       29        1)
+PT  14 POINT=(       9       29        3)  21 POINT=(       1       16        1)
+PT  15 POINT=(      28       24       24)  22 POINT=(       5       19        1)
+PT  16 POINT=(       5       20       20)  14 POINT=(      19       10        1)
+PT  17 POINT=(       2       12       14)  20 POINT=(      25       24        1)
+PT  18 POINT=(      27       10       16)   2 POINT=(      15       18        1)
+PT  19 POINT=(      23       26       13)  12 POINT=(      26        9        1)
+PT  20 POINT=(       7       23        0)   1 POINT=(       7       23        0)
+DONE POINT=(       7       23        0)
+ORDER       20
+
+SOLUTION 30 0
+PT   1 POINT=(      30        0        1)   1 POINT=(      30        0        1)
+PT   2 POINT=(       5        1        0)   1 POINT=(       5        1        0)
+DONE POINT=(       5        1        0)
+ORDER        2
