@@ -1,5 +1,5 @@
 Here's how to read this output.
-We work on the curve y^2 = x^3 + 3x + 4, taken modulo the prime 31.
+In this example, we work on the curve y^2 = x^3 + 3x + 4, taken modulo the prime 31.
 
 We assign a base point (X, Y, Z)=(3, 3, 1)
 For this point, we have the first "power" (I will use exponention terminology)
@@ -8,8 +8,7 @@ point (the version of the point with Z=1) is the point itself.
 
 Using the formulas, we double the point.  In projective coordinates we
 get (2, 21, 6).  The inverse (written Zinverse) of 6 modulo 31 is 26.
-Now the normalization step, using the formulas from the text that I posted
-to Canvas.  The projective version is (X,Y,Z):
+The projective version is (X,Y,Z):
    That formula has X=2, and x = X/Z^2, so X = x*Z^2.  To normalize, we
 multiply by Zinverse^2 to get x = 2*26^2 = 1352 == 19 modulo 31.
    Similarly, we have Y=21, and y = Y/Z^3, so we multiply
