@@ -51,4 +51,4 @@ $ python main.py curves.txt
 The program will enumerate the list of points, power each point up to infinity, count the order of each point and write the corresponding results to output.txt
 
 ## Demo Output
-A demo output when run against input.txt can be found in output.txt
+A demo output when run against input.txt can be found in [output.txt](https://github.com/AtypicalAsian/elliptic-curve/blob/main/output.txt)
